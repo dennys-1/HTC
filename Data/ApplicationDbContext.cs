@@ -25,7 +25,7 @@ namespace hotel_santa_ursula_II.Data
         public DbSet<hotel_santa_ursula_II.Models.Carrito> DataProforma { get; set; }
         public DbSet<hotel_santa_ursula_II.Models.Usuario> listausuarios { get; set; }
         public DbSet<hotel_santa_ursula_II.Models.Devolucion> devol { get; set; }
-
-
+        public DbSet<hotel_santa_ursula_II.Models.TipoActividad> Tipo_act { get; set; }
+        public DbSet<hotel_santa_ursula_II.Models.Actividades> actividades { get; set; }
     }
 }

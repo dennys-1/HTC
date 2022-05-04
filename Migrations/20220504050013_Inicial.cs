@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace hotel_santa_ursula_II.Migrations
 {
-    public partial class inicial : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,6 +66,42 @@ namespace hotel_santa_ursula_II.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "t_clientes",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombres = table.Column<string>(type: "text", nullable: true),
+                    apellidos = table.Column<string>(type: "text", nullable: true),
+                    dni = table.Column<int>(type: "integer", nullable: false),
+                    direccion = table.Column<string>(type: "text", nullable: true),
+                    telefono = table.Column<int>(type: "integer", nullable: false),
+                    correo = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_clientes", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_devolucion",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombres = table.Column<string>(type: "text", nullable: true),
+                    apellidos = table.Column<string>(type: "text", nullable: true),
+                    dni = table.Column<int>(type: "integer", nullable: false),
+                    motivo = table.Column<string>(type: "text", nullable: true),
+                    numero = table.Column<int>(type: "integer", nullable: false),
+                    Estado = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_devolucion", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "T_pago",
                 columns: table => new
                 {
@@ -83,6 +119,20 @@ namespace hotel_santa_ursula_II.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "T_tipo_actividad",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nomtipactividad = table.Column<string>(type: "text", nullable: false),
+                    desctipact = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T_tipo_actividad", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "T_tipo_habitacion",
                 columns: table => new
                 {
@@ -94,25 +144,6 @@ namespace hotel_santa_ursula_II.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T_tipo_habitacion", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "T_usuarios",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    razonsocial = table.Column<string>(type: "text", nullable: false),
-                    dni = table.Column<int>(type: "integer", nullable: false),
-                    rol = table.Column<int>(type: "integer", nullable: false),
-                    direccion = table.Column<string>(type: "text", nullable: true),
-                    telefono = table.Column<int>(type: "integer", nullable: false),
-                    correo = table.Column<string>(type: "text", nullable: true),
-                    password = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_T_usuarios", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,6 +275,30 @@ namespace hotel_santa_ursula_II.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "T_actividades",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    codigo = table.Column<string>(type: "text", nullable: true),
+                    precio = table.Column<int>(type: "integer", nullable: false),
+                    descripcion = table.Column<string>(type: "text", nullable: true),
+                    Estado = table.Column<string>(type: "text", nullable: true),
+                    Imagen = table.Column<string>(type: "text", nullable: true),
+                    tipoActividadid = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T_actividades", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_T_actividades_T_tipo_actividad_tipoActividadid",
+                        column: x => x.tipoActividadid,
+                        principalTable: "T_tipo_actividad",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "T_habitaciones",
                 columns: table => new
                 {
@@ -307,7 +362,8 @@ namespace hotel_santa_ursula_II.Migrations
                     Quantity = table.Column<int>(type: "integer", nullable: false),
                     Precio = table.Column<int>(type: "integer", nullable: false),
                     C_noches = table.Column<int>(type: "integer", nullable: false),
-                    Status = table.Column<string>(type: "text", nullable: true)
+                    Status = table.Column<string>(type: "text", nullable: true),
+                    fechar = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -383,6 +439,11 @@ namespace hotel_santa_ursula_II.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_T_actividades_tipoActividadid",
+                table: "T_actividades",
+                column: "tipoActividadid");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_t_detalle_pedido_Habitacionesid",
                 table: "t_detalle_pedido",
                 column: "Habitacionesid");
@@ -434,7 +495,16 @@ namespace hotel_santa_ursula_II.Migrations
                 name: "L_Reclamaciones");
 
             migrationBuilder.DropTable(
+                name: "T_actividades");
+
+            migrationBuilder.DropTable(
+                name: "t_clientes");
+
+            migrationBuilder.DropTable(
                 name: "t_detalle_pedido");
+
+            migrationBuilder.DropTable(
+                name: "t_devolucion");
 
             migrationBuilder.DropTable(
                 name: "t_proforma");
@@ -443,13 +513,13 @@ namespace hotel_santa_ursula_II.Migrations
                 name: "T_reserva");
 
             migrationBuilder.DropTable(
-                name: "T_usuarios");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "T_tipo_actividad");
 
             migrationBuilder.DropTable(
                 name: "T_pedido");
