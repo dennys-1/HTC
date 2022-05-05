@@ -237,6 +237,9 @@ namespace hotel_santa_ursula_II.Migrations
                     b.Property<string>("descripcion")
                         .HasColumnType("text");
 
+                    b.Property<string>("nombre")
+                        .HasColumnType("text");
+
                     b.Property<int>("precio")
                         .HasColumnType("integer");
 

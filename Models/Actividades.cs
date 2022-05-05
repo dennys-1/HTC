@@ -14,6 +14,8 @@ namespace hotel_santa_ursula_II.Models
         
         [Display(Name="Código:")]
         public string codigo { get; set; }
+        [Display(Name="Nombre:")]
+        public string nombre { get; set;}
 
         [Display(Name="Precio:")]
         public int precio { get; set; }

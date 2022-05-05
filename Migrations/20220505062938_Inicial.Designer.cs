@@ -10,7 +10,7 @@ using hotel_santa_ursula_II.Data;
 namespace hotel_santa_ursula_II.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220504050013_Inicial")]
+    [Migration("20220505062938_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -237,6 +237,9 @@ namespace hotel_santa_ursula_II.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("descripcion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("nombre")
                         .HasColumnType("text");
 
                     b.Property<int>("precio")

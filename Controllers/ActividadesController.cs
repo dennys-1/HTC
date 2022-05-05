@@ -35,7 +35,7 @@ namespace hotel_santa_ursula_II.Controllers
             productos = productos.Where(s => s.Estado.Equals("Disponible"));
             return View(await productos.ToListAsync());
         }
-        public async Task<IActionResult> Detalles(int? id)
+        public async Task<IActionResult> Detallesa(int? id)
         {
             Models.Actividades objProduct = await _context.actividades.FindAsync(id);
             if(objProduct == null){
@@ -52,6 +52,25 @@ namespace hotel_santa_ursula_II.Controllers
             }
             return View(await empquery.AsNoTracking().ToListAsync());
 
+        }
+        public async Task<IActionResult> Agregar(int? id)
+        {
+            var userID = _userManager.GetUserName(User);
+            if(userID == null){
+                ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
+                List<Actividades> productos = new List<Actividades>();
+                return  View("Mostrar",productos);
+            }else{
+                var producto = await _context.actividades.FindAsync(id);
+                Proforma proforma = new Proforma();
+                proforma.Producto = producto;
+                proforma.Price = producto.Price;
+                proforma.Quantity = 1;
+                proforma.UserID = userID;
+                _context.Add(proforma);
+                await _context.SaveChangesAsync();
+                return  RedirectToAction(nameof(CatalogoD));
+            }
         }
     }
 }

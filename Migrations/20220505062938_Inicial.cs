@@ -281,6 +281,7 @@ namespace hotel_santa_ursula_II.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     codigo = table.Column<string>(type: "text", nullable: true),
+                    nombre = table.Column<string>(type: "text", nullable: true),
                     precio = table.Column<int>(type: "integer", nullable: false),
                     descripcion = table.Column<string>(type: "text", nullable: true),
                     Estado = table.Column<string>(type: "text", nullable: true),
