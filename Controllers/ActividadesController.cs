@@ -64,12 +64,13 @@ namespace hotel_santa_ursula_II.Controllers
                 var producto = await _context.actividades.FindAsync(id);
                 Proforma proforma = new Proforma();
                 proforma.Producto = producto;
-                proforma.Price = producto.Price;
-                proforma.Quantity = 1;
+                proforma.precio = producto.precio;
+                proforma.codigo = producto.codigo;
+                proforma.nombre = producto.nombre;
                 proforma.UserID = userID;
                 _context.Add(proforma);
                 await _context.SaveChangesAsync();
-                return  RedirectToAction(nameof(CatalogoD));
+                return  RedirectToAction(nameof(Mostrar));
             }
         }
     }

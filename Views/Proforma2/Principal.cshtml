@@ -1,0 +1,58 @@
+@model dynamic;
+@using System.Collections.Generic;
+
+@{
+    ViewData["Title"] = "Carrito";
+    IEnumerable<hotel_santa_ursula_II.Models.Proforma> listProformas = new List<Proforma>();
+    listProformas = @Model.proformas;
+    Decimal montoTotal = @Model.montoTotal;
+}
+
+<section id="catalogue" class="catalogue section-bg">
+
+<div class="container">
+    <div class="section-title">
+          <h2 data-aos="fade-in">Carrito</h2>
+          
+        </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().Producto.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    </div>
+    </section>
+    <tbody>
+@foreach (Proforma item in Model.proformas) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Modificar</a> |
+                <a class="btn btn-success" asp-action="Delete" asp-route-id="@item.Id">Quitar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>Total S/. @montoTotal</p>
+<a class="btn btn-primary" asp-controller="Pago" 
+        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a>

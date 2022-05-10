@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hotel_santa_ursula_II.Models
 {
-    [Table("t_proforma")]
+    [Table("t_proforma2")]
     public class Proforma
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,9 +15,11 @@ namespace hotel_santa_ursula_II.Models
 
         public Actividades Producto { get; set;}
 
-        public int Quantity { get; set;}
+        public string codigo { get; set;}
 
-        public Decimal Price { get; set;}
+        public string nombre { get; set;}
+
+        public int precio { get; set;}
 
         public String Status { get; set;} = "PENDIENTE";
     }
