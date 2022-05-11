@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace hotel_santa_ursula_II.Migrations
 {
-    public partial class ProformaMigration : Migration
+    public partial class Proforma2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

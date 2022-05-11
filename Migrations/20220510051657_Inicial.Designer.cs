@@ -10,8 +10,8 @@ using hotel_santa_ursula_II.Data;
 namespace hotel_santa_ursula_II.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220506023220_ProformaMigration")]
-    partial class ProformaMigration
+    [Migration("20220510051657_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -447,39 +447,6 @@ namespace hotel_santa_ursula_II.Migrations
                     b.ToTable("T_pedido");
                 });
 
-            modelBuilder.Entity("hotel_santa_ursula_II.Models.Proforma", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int?>("Productoid")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("text");
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<string>("nombre")
-                        .HasColumnType("text");
-
-                    b.Property<int>("precio")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Productoid");
-
-                    b.ToTable("t_proforma2");
-                });
-
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Reclamaciones", b =>
                 {
                     b.Property<int>("id")
@@ -730,15 +697,6 @@ namespace hotel_santa_ursula_II.Migrations
                         .HasForeignKey("pagoId");
 
                     b.Navigation("pago");
-                });
-
-            modelBuilder.Entity("hotel_santa_ursula_II.Models.Proforma", b =>
-                {
-                    b.HasOne("hotel_santa_ursula_II.Models.Actividades", "Producto")
-                        .WithMany()
-                        .HasForeignKey("Productoid");
-
-                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Reservas", b =>

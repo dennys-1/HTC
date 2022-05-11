@@ -13,18 +13,19 @@ using Rotativa.AspNetCore;
 
 namespace hotel_santa_ursula_II.Controllers
 {
-    public class ProformaActividadesController : Controller
+    public class Carrito2Controller : Controller
     {
-         private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ProformaActividadesController(ApplicationDbContext context,
-         UserManager<IdentityUser> userManager)
+        public Carrito2Controller(ApplicationDbContext context,
+            UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
-        public async Task<IActionResult> Principal()
+               // GET: Proforma
+       public async Task<IActionResult> Index2()
         {
             var userID = _userManager.GetUserName(User);
             var items = from o in _context.DataProforma2 select o;
@@ -34,5 +35,10 @@ namespace hotel_santa_ursula_II.Controllers
 
                 return View(await items.ToListAsync());
         }
+
+        
+
+
+
     }
 }

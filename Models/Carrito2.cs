@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace hotel_santa_ursula_II.Models
 {
     [Table("t_proforma2")]
-    public class Proforma
+    public class Carrito2
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
@@ -20,6 +20,7 @@ namespace hotel_santa_ursula_II.Models
         public string nombre { get; set;}
 
         public int precio { get; set;}
+        
 
         public String Status { get; set;} = "PENDIENTE";
     }

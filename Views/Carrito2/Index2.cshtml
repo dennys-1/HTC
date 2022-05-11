@@ -3,9 +3,8 @@
 
 @{
     ViewData["Title"] = "Carrito";
-    IEnumerable<hotel_santa_ursula_II.Models.Proforma> listProformas = new List<Proforma>();
-    listProformas = @Model.proformas;
-    Decimal montoTotal = @Model.montoTotal;
+    IEnumerable<hotel_santa_ursula_II.Models.Carrito2> listProformas = new List<Carrito2>();
+    
 }
 
 <section id="catalogue" class="catalogue section-bg">
@@ -34,7 +33,7 @@
     </div>
     </section>
     <tbody>
-@foreach (Proforma item in Model.proformas) {
+@foreach (Carrito2 item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Producto.nombre)
@@ -53,6 +52,3 @@
 }
     </tbody>
 </table>
-<p>Total S/. @montoTotal</p>
-<a class="btn btn-primary" asp-controller="Pago" 
-        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a>

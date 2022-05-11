@@ -62,7 +62,7 @@ namespace hotel_santa_ursula_II.Controllers
                 return  View("Mostrar",productos);
             }else{
                 var producto = await _context.actividades.FindAsync(id);
-                Proforma proforma = new Proforma();
+                Carrito2 proforma = new Carrito2();
                 proforma.Producto = producto;
                 proforma.precio = producto.precio;
                 proforma.codigo = producto.codigo;

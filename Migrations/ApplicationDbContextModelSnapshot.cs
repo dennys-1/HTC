@@ -289,6 +289,39 @@ namespace hotel_santa_ursula_II.Migrations
                     b.ToTable("t_proforma");
                 });
 
+            modelBuilder.Entity("hotel_santa_ursula_II.Models.Carrito2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("Productoid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.Property<string>("codigo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("nombre")
+                        .HasColumnType("text");
+
+                    b.Property<int>("precio")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Productoid");
+
+                    b.ToTable("t_proforma2");
+                });
+
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Detallepedido", b =>
                 {
                     b.Property<int>("ID")
@@ -443,39 +476,6 @@ namespace hotel_santa_ursula_II.Migrations
                     b.HasIndex("pagoId");
 
                     b.ToTable("T_pedido");
-                });
-
-            modelBuilder.Entity("hotel_santa_ursula_II.Models.Proforma", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int?>("Productoid")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("text");
-
-                    b.Property<string>("codigo")
-                        .HasColumnType("text");
-
-                    b.Property<string>("nombre")
-                        .HasColumnType("text");
-
-                    b.Property<int>("precio")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Productoid");
-
-                    b.ToTable("t_proforma2");
                 });
 
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Reclamaciones", b =>
@@ -697,6 +697,15 @@ namespace hotel_santa_ursula_II.Migrations
                     b.Navigation("habitacion");
                 });
 
+            modelBuilder.Entity("hotel_santa_ursula_II.Models.Carrito2", b =>
+                {
+                    b.HasOne("hotel_santa_ursula_II.Models.Actividades", "Producto")
+                        .WithMany()
+                        .HasForeignKey("Productoid");
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Detallepedido", b =>
                 {
                     b.HasOne("hotel_santa_ursula_II.Models.Habitaciones", "Habitaciones")
@@ -728,15 +737,6 @@ namespace hotel_santa_ursula_II.Migrations
                         .HasForeignKey("pagoId");
 
                     b.Navigation("pago");
-                });
-
-            modelBuilder.Entity("hotel_santa_ursula_II.Models.Proforma", b =>
-                {
-                    b.HasOne("hotel_santa_ursula_II.Models.Actividades", "Producto")
-                        .WithMany()
-                        .HasForeignKey("Productoid");
-
-                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Reservas", b =>
