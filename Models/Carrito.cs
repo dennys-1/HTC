@@ -15,11 +15,11 @@ namespace hotel_santa_ursula_II.Models
         public String UserID {get; set;}
 
         [Display(Name = "Numero de Habitación: ")]
-        public Habitaciones habitacion {get; set;}
+        public Habitaciones Producto2 {get; set;}
         [Display(Name = "Cantidad: ")]
         public int Quantity{get; set;}
         [Display(Name = "Precio por Noche: ")]
-        public int Precio { get; set; }
+        public int precio2 { get; set; }
         [Display(Name = "Noches: ")]
         public int C_noches {get; set;} =1;
         [Display(Name = "Estado: ")]

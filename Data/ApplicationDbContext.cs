@@ -28,5 +28,6 @@ namespace hotel_santa_ursula_II.Data
         public DbSet<hotel_santa_ursula_II.Models.TipoActividad> Tipo_act { get; set; }
         public DbSet<hotel_santa_ursula_II.Models.Actividades> actividades { get; set; }
         public DbSet<hotel_santa_ursula_II.Models.Carrito2> DataProforma2 { get; set;}
+        public DbSet<hotel_santa_ursula_II.Models.Carritoh> Carritohab { get; set;}
     }
 }

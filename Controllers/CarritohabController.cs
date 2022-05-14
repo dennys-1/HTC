@@ -13,30 +13,26 @@ using Rotativa.AspNetCore;
 
 namespace hotel_santa_ursula_II.Controllers
 {
-    public class CarritoController : Controller
+    public class CarritohabController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public CarritoController(ApplicationDbContext context,
+        public CarritohabController(ApplicationDbContext context,
             UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
-               // GET: Proforma
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Indexhab2()
         {
-            var userID = _userManager.GetUserName(User);
-            var carrito = from o in _context.DataProforma select o;
-            carrito = carrito.
-                Include(p => p.Producto2).
-                Where(s => s.UserID.Equals(userID));
+           var userID = _userManager.GetUserName(User);
+            var items = from o in _context.Carritohab select o;
+            items = items.
+              Include(p => p.Prodhab).
+            Where(s => s.UserID.Equals(userID));
 
-                //conversion de fechas a numeros e integer
-                //--------------------------------------------
-            
-            return View(await carrito.ToListAsync());
+                return View(await items.ToListAsync());
         }
     }
 }

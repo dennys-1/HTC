@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Carrito";
-    IEnumerable<hotel_santa_ursula_II.Models.Carrito2> listProformas = new List<Carrito2>();
+    IEnumerable<hotel_santa_ursula_II.Models.Carritoh> listProformas = new List<Carritoh>();
     
 }
 
@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="section-title">
-          <h2 data-aos="fade-in">Carrito de actividades</h2>
+          <h2 data-aos="fade-in">Carrito de habitaciones</h2>
           
         </div>
 
@@ -19,13 +19,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().Producto.nombre)
+                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().Prodhab.Nomhab)
             </th>
             <th>
-                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().codigo)
+                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().numero)
             </th>
             <th>
-                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().precio)
+                @Html.DisplayNameFor(model => listProformas.FirstOrDefault().price)
             </th>
             <th></th>
         </tr>
@@ -33,16 +33,16 @@
     </div>
     </section>
     <tbody>
-@foreach (Carrito2 item in Model) {
+@foreach (Carritoh item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Producto.nombre)
+                @Html.DisplayFor(modelItem => item.Prodhab.Nomhab)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.codigo)
+                @Html.DisplayFor(modelItem => item.numero)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.precio)
+                @Html.DisplayFor(modelItem => item.price)
             </td>
             <td>
                 <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Modificar</a> |

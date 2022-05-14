@@ -48,7 +48,7 @@ namespace hotel_santa_ursula_II.Controllers
 
             var itemsReserva = from o in _context.DataProforma select o;
             itemsReserva = itemsReserva.
-                Include(p => p.habitacion).
+                Include(p => p.Producto2).
                 Where(s => s.UserID.Equals(pago.UserID) && s.Status.Equals("PENDIENTE"));
 
 
@@ -67,9 +67,9 @@ namespace hotel_santa_ursula_II.Controllers
             {
                 Detallepedido detallePedido = new Detallepedido();
                 detallePedido.pedido = pedido;
-                detallePedido.Precio = Convert.ToInt32(item.Precio);
-                detallePedido.Habitaciones = item.habitacion;
-                a = item.habitacion.id;
+                detallePedido.precio = Convert.ToInt32(item.precio2);
+                detallePedido.Habitaciones = item.Producto2;
+                a = item.Producto2.id;
                 detallePedido.Cantidad = item.C_noches;
                 itemsPedido.Add(detallePedido);
                 var hab = from o in _context.habitaciones select o;
@@ -127,7 +127,7 @@ namespace hotel_santa_ursula_II.Controllers
             var userID = _userManager.GetUserName(User);
             var items = from o in _context.DataProforma select o;
             items = items.
-                Include(p => p.habitacion).
+                Include(p => p.Producto2).
                 Where(s => s.UserID.Equals(userID));
             
            return new ViewAsPdf("Documento",await items.ToListAsync());

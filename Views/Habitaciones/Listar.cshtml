@@ -35,16 +35,16 @@
                         @Html.DisplayNameFor(model => model.numero)
                     </th>
                     <th scope="col">
-                        @Html.DisplayNameFor(model => model.precio)
+                        @Html.DisplayNameFor(model => model.price)
                     </th> 
                     <th scope="col">
-                        @Html.DisplayNameFor(model => model.descripcion)
+                        @Html.DisplayNameFor(model => model.descrip)
                     </th>
                     <th scope="col">
                         @Html.DisplayNameFor(model => model.nivel)
                     </th>
                     <th scope="col">
-                        @Html.DisplayNameFor(model => model.Estado)
+                        @Html.DisplayNameFor(model => model.Status)
                     </th>
                     <th scope="col">
                         @Html.DisplayNameFor(model => model.Imagen)
@@ -69,17 +69,17 @@
                     H - @Html.DisplayFor(modelItem => item.numero)
                 </td>
                 <td>
-                    S/. @Html.DisplayFor(modelItem => item.precio)
+                    S/. @Html.DisplayFor(modelItem => item.price)
                 </td>
                 <td>
-                   @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.descripcion))
+                   @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.descrip))
 
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.nivel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Estado)
+                    @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
                     <img class="img-responsive" width="200" height="150"

@@ -1,0 +1,72 @@
+@model hotel_santa_ursula_II.Models.Habitaciones
+
+@{
+
+    ViewData["Title"] = "Detalles";
+}
+<style>
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    
+
+    .font20 {
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    .justificado {
+        text-align: justify;
+        text- justify: auto;
+    }
+
+    .checked {
+        color: orange;
+    }
+</style>
+
+<section id="catalogue" class="catalogue section-bg">
+<div class="container">
+<div class="section-title">
+          <h2 data-aos="fade-in">Detalles</h2>
+          
+        </div>
+
+    <div class="card" style="border: none;">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" style="height: 500px; width: 100%; "
+                        src="@Html.DisplayFor(model => model.Imagen)"
+                        alt="@Html.DisplayFor(model => model.Imagen)" />
+                </div>
+            </div>
+            <div class="col-md-7">
+                <br>
+                <h4 class="colorForm">Numero de habitación: @Html.DisplayFor(model => model.numero)</h4>
+                <hr>
+                <ul class="list-unstyled"></ul>
+                 
+                    <p class="colorForm">@Html.DisplayFor(model => model.descrip)</p>
+                  <hr>
+                  <h5 class="colorForm">Nivel: @Html.DisplayFor(model => model.nivel)</h5>
+                  
+                  <h5 class="colorForm">Precio: @Html.DisplayFor(model => model.price)</h5>
+                  
+                
+                </ul>
+                <br>
+                <a class="btn btn-warning" asp-action="Seleccionar" asp-route-id="id">Reservar</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

@@ -15,17 +15,20 @@ namespace hotel_santa_ursula_II.Models
         [Display(Name="Número:")]
         public string numero { get; set; }
 
-        [Display(Name="Precio Noche:")]
-        public int precio { get; set; }
+        [Display(Name="Nombre:")]
+        public string Nomhab { get; set;}
+
+        [Display(Name="Precio:")]
+        public int price { get; set; }
 
         [Display(Name="Descripción:")]
-        public string descripcion { get; set; }
+        public string descrip { get; set; }
 
         [Display(Name="Nivel:")]
         public int nivel { get; set; }
         
         [Display(Name="Estado:")]
-        public string Estado { get; set; }
+        public string Status { get; set; }
 
         [Display(Name="Imagen:")]
         public string Imagen { get; set; }

@@ -25,13 +25,13 @@ namespace hotel_santa_ursula_II.Controllers
             _userManager = userManager;
         }
                // GET: Proforma
-       public async Task<IActionResult> Index2()
+      public async Task<IActionResult> Index2()
         {
-            var userID = _userManager.GetUserName(User);
+           var userID = _userManager.GetUserName(User);
             var items = from o in _context.DataProforma2 select o;
             items = items.
-                Include(p => p.Producto).
-                Where(s => s.UserID.Equals(userID));
+              Include(p => p.Producto).
+            Where(s => s.UserID.Equals(userID));
 
                 return View(await items.ToListAsync());
         }

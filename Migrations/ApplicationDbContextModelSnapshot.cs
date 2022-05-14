@@ -264,7 +264,7 @@ namespace hotel_santa_ursula_II.Migrations
                     b.Property<int>("C_noches")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Precio")
+                    b.Property<int?>("Producto2id")
                         .HasColumnType("integer");
 
                     b.Property<int>("Quantity")
@@ -279,12 +279,12 @@ namespace hotel_santa_ursula_II.Migrations
                     b.Property<DateTime>("fechar")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("habitacionid")
+                    b.Property<int>("precio2")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("habitacionid");
+                    b.HasIndex("Producto2id");
 
                     b.ToTable("t_proforma");
                 });
@@ -322,6 +322,48 @@ namespace hotel_santa_ursula_II.Migrations
                     b.ToTable("t_proforma2");
                 });
 
+            modelBuilder.Entity("hotel_santa_ursula_II.Models.Carritoh", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("C_noches")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Nomhab")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("Prodhabid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("fechar")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("numero")
+                        .HasColumnType("text");
+
+                    b.Property<int>("price")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Prodhabid");
+
+                    b.ToTable("t_proformah");
+                });
+
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Detallepedido", b =>
                 {
                     b.Property<int>("ID")
@@ -336,10 +378,10 @@ namespace hotel_santa_ursula_II.Migrations
                     b.Property<int?>("Habitacionesid")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Precio")
+                    b.Property<int?>("pedidoID")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("pedidoID")
+                    b.Property<int>("precio")
                         .HasColumnType("integer");
 
                     b.HasKey("ID");
@@ -395,13 +437,16 @@ namespace hotel_santa_ursula_II.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("Estado")
-                        .HasColumnType("text");
-
                     b.Property<string>("Imagen")
                         .HasColumnType("text");
 
-                    b.Property<string>("descripcion")
+                    b.Property<string>("Nomhab")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
+
+                    b.Property<string>("descrip")
                         .HasColumnType("text");
 
                     b.Property<int>("nivel")
@@ -410,7 +455,7 @@ namespace hotel_santa_ursula_II.Migrations
                     b.Property<string>("numero")
                         .HasColumnType("text");
 
-                    b.Property<int>("precio")
+                    b.Property<int>("price")
                         .HasColumnType("integer");
 
                     b.Property<int?>("tipoHabitacionid")
@@ -690,11 +735,11 @@ namespace hotel_santa_ursula_II.Migrations
 
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Carrito", b =>
                 {
-                    b.HasOne("hotel_santa_ursula_II.Models.Habitaciones", "habitacion")
+                    b.HasOne("hotel_santa_ursula_II.Models.Habitaciones", "Producto2")
                         .WithMany()
-                        .HasForeignKey("habitacionid");
+                        .HasForeignKey("Producto2id");
 
-                    b.Navigation("habitacion");
+                    b.Navigation("Producto2");
                 });
 
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Carrito2", b =>
@@ -704,6 +749,15 @@ namespace hotel_santa_ursula_II.Migrations
                         .HasForeignKey("Productoid");
 
                     b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("hotel_santa_ursula_II.Models.Carritoh", b =>
+                {
+                    b.HasOne("hotel_santa_ursula_II.Models.Habitaciones", "Prodhab")
+                        .WithMany()
+                        .HasForeignKey("Prodhabid");
+
+                    b.Navigation("Prodhab");
                 });
 
             modelBuilder.Entity("hotel_santa_ursula_II.Models.Detallepedido", b =>

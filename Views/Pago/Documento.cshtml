@@ -47,13 +47,13 @@
         <thead>
             <tr>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.habitacion.Imagen)
+                    @Html.DisplayNameFor(model => model.Producto2.Imagen)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.habitacion.numero)
+                    @Html.DisplayNameFor(model => model.Producto2.numero)
                 </th>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.Precio)
+                    @Html.DisplayNameFor(model => model.precio2)
                 </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.fechar)
@@ -72,13 +72,13 @@
                <tr>
             <td>
                 <img class="img-responsive" width="200" height="150"
-                       src="@item.habitacion.Imagen" alt="@item.habitacion.Imagen"  />
+                       src="@item.Producto2.Imagen" alt="@item.Producto2.Imagen"  />
             </td>
             <td>
-                H - @Html.DisplayFor(modelItem => item.habitacion.numero)
+                H - @Html.DisplayFor(modelItem => item.Producto2.numero)
             </td>
             <td>
-                S/. @Html.DisplayFor(modelItem => item.Precio)
+                S/. @Html.DisplayFor(modelItem => item.precio2)
             </td>
             <td>
                     <script>
@@ -91,7 +91,7 @@
             </td>
             <td>
                 @{
-                    total = item.Precio * item.C_noches;                
+                    total = item.precio2 * item.C_noches;                
                 }
                 <p>S/. @total</p>
             </td>
@@ -104,7 +104,7 @@
       @foreach (var item in Model){
          <tr>
             @{
-               total = total + item.Precio*item.Quantity;
+               total = total + item.precio2*item.Quantity;
                contar++;
             }
          </tr>
@@ -118,7 +118,7 @@
       @foreach (var item in Model){
          <tr>
             @{
-               total1 = total1 + item.Precio * item.C_noches;
+               total1 = total1 + item.precio2 * item.C_noches;
                 
                contar1++;
             }
