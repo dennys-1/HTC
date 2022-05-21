@@ -133,6 +133,13 @@ namespace hotel_santa_ursula_II.Controllers
            return new ViewAsPdf("Documento",await items.ToListAsync());
         }
 
-
+public IActionResult Metodo()
+{
+    return View();
+}
+public IActionResult Yape()
+{
+    return View();
+}
     }
 }

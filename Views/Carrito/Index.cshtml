@@ -98,7 +98,6 @@
     </tbody>    
 </table>
 
-
       @foreach (var item in Model){
          <tr>
             @{
@@ -123,16 +122,12 @@
          </tr>
       }
 
-
-
     <!--<div class="container">
          <h4>Total: S/ @total </h4> 
            <h5>total @total1</h5>           
     </div>-->
 
-    <a class="btn btn-primary button" asp-controller="Pago" asp-action="Create" asp-route-monto="@total1">Pagar</a>
+    <a class="btn btn-primary button" asp-controller="Pago" asp-action="Metodo" asp-route-monto="@total1">Pagar</a>
     <p align="center" style="font-size: 200%;">Total a Pagar S/. @total1</p>
-
-      
 </body>
     

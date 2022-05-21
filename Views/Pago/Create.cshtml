@@ -30,8 +30,8 @@
 
                 <input type="hidden" asp-for="UserID"/>
                 
-                <div class="form-group text-left">
-                <label asp-for="NombreTarjeta" class="control-label"></label>
+               <div class="form-group text-left">
+               <label asp-for="NombreTarjeta" class="control-label"></label>
                 <select asp-for="NombreTarjeta" class="form-control rounded-pill" aria-label="Default select example">
                 <option value="BCP">BCP</option>
                 <option value="BBVA">BBVA</option>
@@ -41,7 +41,7 @@
                 </select>
                 <span asp-validation-for="NombreTarjeta" class="text-danger"></span>
                 </div>
-                <br>
+                <br>  
                 <label asp-for="NumeroTarjeta" class="control-label">Número de Tarjeta</label>
                 <input asp-for="NumeroTarjeta" class="form-control rounded-pill" data-inputmask="'mask': '9999-9999-9999-9999'" />
                 <br>
@@ -54,6 +54,7 @@
                 <label asp-for="MontoTotal" class="control-label">Monto Total</label>
                 <input asp-for="MontoTotal" class="form-control rounded-pill" data-thousands="," data-decimal="." readonly />
                 <br>
+               
                 <div class="form-group">
                   <button type="submit" class="button">Pagar</button>                  
                 </div>
