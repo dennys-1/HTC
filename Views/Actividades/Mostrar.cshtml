@@ -45,11 +45,11 @@
                   </div>
                   
                   <div class="card-body">
-                   
+                   <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                  <p class="card-text">Precio: S/.@Html.DisplayFor(modelItem => item.precio)</p>
                     
                       <a class="btn btn-warning" asp-action="Detallesa" asp-route-id="@item.id">Detalles</a>
-                    <a class="btn btn-warning" 
-                    >Agregar</a>
+                      <a class="btn btn-warning" asp-action="Agregar" asp-route-id="@item.id">Agregar</a>
                     
                   </div>
                 </div>
