@@ -1,0 +1,46 @@
+@model hotel_santa_ursula_II.Models.Pago
+@{
+    ViewData["Title"] = "Metodo";
+}
+<head>  
+   <script src="https://kit.fontawesome.com/c239d89a06.js" crossorigin="anonymous"></script>      
+</head>
+
+<body>
+   <!--Inicio Banner-->
+<div class="hero-wrap hero-wrap-2" style="background-image: url('../images/banner1.jpg'); background-attachment:fixed; height: 200px;">
+      <div class="overlay" style="height: 200px;" ></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true" style="height: 200px;">
+           <div class="col-md-8 ftco-animate text-center">          
+             <h1 class="mb-3 bread">Método de Pago</h1>
+            </div>
+          </div>
+       </div>
+</div>    
+<br>
+<br>
+<!--Fin Banner-->
+
+<!--<div class="col-lg-6" style="float:none;margin:auto;">-->
+    <div style="margin: 0 auto; margin-left: 165px; font-size: 17px;">
+    <div style="height: 300px; position:absolute; " >
+
+    <a class="hero-wrap hero-wrap-1" asp-controller="Pago" asp-action="Create" style="margin-left: 65px;"><i class="fas fa-door-open"></i>Pago con Tarjeta</a>       
+    <br>
+      <img src="../images/tarjetas.png" asp-append-version="true" height="70">         
+    </div> 
+    <div style="height: 300px; margin-left: 600px;" >
+    <a class="hero-wrap hero-wrap-2" asp-controller="Pago" asp-action="Yape" style="margin-left: 5px;"><i class="fas fa-door-open"></i>Pago con Yape</a>   
+      <br>
+      <img src="../images/yape.png" asp-append-version="true" height="200"> 
+</div>
+</div>
+            <!--<form asp-controller="Carrito" asp-action="ContactPDF">
+                  <button type="submit" class="button" id="boton">Generar Comprobante</button>                 
+
+            </form>
+            <a asp-action="Documento" target="_blank">GENERAR COMPROBANTE PDF</a>-->
+            
+        
+    </body>
