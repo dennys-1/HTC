@@ -26,6 +26,10 @@ namespace hotel_santa_ursula_II.Data
         public DbSet<hotel_santa_ursula_II.Models.Usuario> listausuarios { get; set; }
         public DbSet<hotel_santa_ursula_II.Models.Devolucion> devol { get; set; }
 
+        public DbSet<hotel_santa_ursula_II.Models.Driver> Drivers { get; set; }
+        public DbSet<hotel_santa_ursula_II.Models.Rider> Riders { get; set; }
+        public DbSet<hotel_santa_ursula_II.Models.RideRequest> RideRequests { get; set; }
+
 
     }
 }
